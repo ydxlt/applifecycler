@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'maven'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api gradleApi()
+    api localGroovy()
+    implementation "com.android.tools.build:gradle:3.6.1"
+    implementation 'org.ow2.asm:asm:9.1'
+    implementation 'org.ow2.asm:asm-commons:9.1'
+}
+
+uploadArchives{
+    repositories.mavenDeployer{
+        // 配置本地仓库路径，项目根目录下的repository目录中
+        repository(url: uri('../repo'))
+        pom.groupId = "io.ydxlt.plugin"// 唯一标识（通常为模块包名，也可以任意）
+        pom.artifactId = "applifecycle" // 项目名称（通常为类库模块名称，也可以任意）
+        pom.version = "1.0.13" // 版本号
+    }
+}

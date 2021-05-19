@@ -1,0 +1,8 @@
+rootProject.name = "AppLifecycler"
+include ':app'
+include ':applifecycle-api'
+include ':applifecycle-compiler'
+include ':applifecycle-plugin'
+include ':homeapp'
+include ':usercenter'
+include ':discovery'
